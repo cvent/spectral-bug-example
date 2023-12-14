@@ -1,0 +1,10 @@
+rules:
+  require-description:
+    severity: warn
+    resolved: false
+    description: Ensure top-level descriptions are present for JSON schema files
+    message: 'JSON schema file is missing a description property'
+    given: $
+    then:
+      field: description
+      function: truthy

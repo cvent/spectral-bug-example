@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema B",
+  "description": "Schema with reference to another entity in same folder",
+  "type": "array",
+  "items": {
+    "$ref": "schema-a.json"
+  }
+}

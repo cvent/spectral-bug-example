@@ -1,0 +1,17 @@
+{
+  "name": "spectral-bug-example",
+  "version": "1.0.0",
+  "description": "Simple example to show bug in spectral linting",
+  "main": "index.js",
+  "scripts": {
+    "lint": "spectral lint ./**/*.json -v -r examplerules.spectral.yaml",
+    "lint-a": "spectral lint folder-a/schema-a.json -v -r examplerules.spectral.yaml",
+    "lint-b": "spectral lint folder-a/schema-b.json -v -r examplerules.spectral.yaml",
+    "lint-c": "spectral lint folder-b/schema-c.json -v -r examplerules.spectral.yaml"
+  },
+  "author": "pwilson@cvent.com",
+  "license": "ISC",
+  "dependencies": {
+    "@stoplight/spectral-cli": "^6.11.0"
+  }
+}
