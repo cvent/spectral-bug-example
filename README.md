@@ -11,14 +11,14 @@ npm run lint
 ```
 This will use spectral to lint all the .json files in this repo. This will cause the following error to be reported
 ```
-spectral-bug-example/folder-a/schema-b.json
- 1:1  error  invalid-ref  ENOENT: no such file or directory, open 'spectral-bug-example/folder-a/schema-c.json'  properties.data.properties.data.items.properties.data.items.$ref
+spectral-bug-example/models/bulk-response.json
+ 1:1  error  invalid-ref  ENOENT: no such file or directory, open 'spectral-bug-example/models/error.json' properties.data.oneOf[1].properties.details.items.properties.details.items.properties.details.items.properties.details.items.$ref
 ```
 But if you run any of the three following commands
 ```
-npm run lint-a
-npm run lint-b
-npm run lint-c
+npm run lint-bulk
+npm run lint-item
+npm run lint-error
 ```
 which lints just a single json file at a time, no error is reported.
 
