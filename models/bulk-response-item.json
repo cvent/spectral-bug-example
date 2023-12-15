@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Response",
+  "description": "This is a simple response entity that can contain error data",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "notification": {
+              "type": "string",
+              "example": "You have an unread message"
+            }
+          }
+        },
+        {
+          "$ref": "../errors/error.json"
+        }
+      ]
+    }
+  }
+}

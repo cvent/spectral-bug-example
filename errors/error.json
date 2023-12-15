@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Error",
+  "description": "Error that can contain further errors to provide more detail",
+  "type": "object",
+  "required": ["message"],
+  "properties": {
+    "message": {
+      "type": "string",
+      "example": "could not process request"
+    },
+    "details": {
+      "type": "array",
+      "items": {
+        "$ref": "error.json"
+      }
+    }
+  }
+}
