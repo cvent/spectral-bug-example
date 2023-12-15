@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "spectral lint ./**/*.json -v -r examplerules.spectral.yaml",
-    "lint-a": "spectral lint folder-a/schema-a.json -v -r examplerules.spectral.yaml",
-    "lint-b": "spectral lint folder-a/schema-b.json -v -r examplerules.spectral.yaml",
-    "lint-c": "spectral lint folder-b/schema-c.json -v -r examplerules.spectral.yaml"
+    "lint-bulk": "spectral lint models/bulk-response.json -v -r examplerules.spectral.yaml",
+    "lint-item": "spectral lint models/bulk-response-item.json -v -r examplerules.spectral.yaml",
+    "lint-error": "spectral lint errors/error.json -v -r examplerules.spectral.yaml"
   },
   "author": "pwilson@cvent.com",
   "license": "ISC",

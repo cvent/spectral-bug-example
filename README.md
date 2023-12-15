@@ -11,16 +11,16 @@ npm run lint
 ```
 This will use spectral to lint all the .json files in this repo. This will cause the following error to be reported
 ```
-spectral-bug-example/folder-a/schema-b.json
- 1:1  error  invalid-ref  ENOENT: no such file or directory, open 'spectral-bug-example/folder-a/schema-c.json'  properties.data.properties.data.items.properties.data.items.$ref
+spectral-bug-example/models/bulk-response.json
+ 1:1  error  invalid-ref  ENOENT: no such file or directory, open 'spectral-bug-example/models/error.json' properties.data.oneOf[1].properties.details.items.properties.details.items.properties.details.items.properties.details.items.$ref
 ```
 But if you run any of the three following commands
 ```
-npm run lint-a
-npm run lint-b
-npm run lint-c
+npm run lint-bulk
+npm run lint-item
+npm run lint-error
 ```
 which lints just a single json file at a time, no error is reported.
 
 ## Probable reasons for bug
-If you look at the reported error, it is looking for `schema-c.json` in `folder-a` even though `schema-c.json` is in `folder-b`. I believe this is happening because while linting `schema-a` it fully resolves it, and because `schema-c` contains a relative reference to itself, it is preserved, and brought into `schema-a`. And when `schema-b` is resolved, it brings in the already resolved `schema-a`, including the now incorrect reference to `schema-c`.
+If you look at the reported error, it is looking for `error.json` in the `models` folder even though `error.json` is in the `errors` folder. I believe this is happening because while linting `bulk-response-item.json` it fully resolves it, and because `error.json` contains a relative reference to itself, it is preserved, and brought into `bulk-response-item.json`. And when `bulk-response.json` is resolved, it brings in the already resolved `bulk-response-item.json`, including the now incorrect reference to `error.json`. I also noticed this only happens if `bulk-response-item.json` is linted before `bulk-response.json`, if, for example, you change the name of `bulk-item-response.json` to `item.json` and update the references to it, then run the lint command, it will resolve normally. 
