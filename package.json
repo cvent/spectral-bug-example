@@ -12,6 +12,6 @@
   "author": "pwilson@cvent.com",
   "license": "ISC",
   "dependencies": {
-    "@stoplight/spectral-cli": "^6.11.0"
+    "@stoplight/spectral-cli": "^6.15.0"
   }
 }
